@@ -17,32 +17,34 @@ class Calender(object):
 		                 'Nov':range(1, 31),
 		                 'Dec':range(1, 32)}
 
-		self.events = list()
 		self.display_events = list()
 
 		self.options()
 
 	def add_event(self):
-		event_name = raw_input('What is the event about?')
-		event_month = raw_input('Enter month: ')
-		event_date = input('Enter date: ')
-		self.events.append(event_name)
-		self.events.append(event_month)
-		self.events.append(event_date)
-
-		self.display_events.append(self.events)
-
+		events = list()
+		event_name = raw_input('What is the event about?: \n')
+		event_month = raw_input('Enter month: \n')
+		event_date = input('Enter date: \n')
+		events.append(event_name)
+		events.append(event_month)
+		events.append(event_date)
+		self.display_events.append(events)
 		self.options()
 
 	def view_list(self):
-		print tabulate(self.display_events, headers=['Event Name', 'Month', 'Date'])
-		self.options()
+		print tabulate(self.display_events, headers=['Event Name', 'Month', 'Date'], tablefmt="grid")
+		return self.options()
 
 	def view_last_event(self):
-		pass
+		last_view = list()
+		last_view.append(self.display_events[len(self.display_events) - 1])
+		print tabulate(last_view, headers=['Event Name', 'Month', 'Date'], tablefmt="grid")
+
+		return self.options()
 
 	def options(self):
-		option = input('What would you like to do?\n1. Create an event \n2. View list of events\n3. View last event')
+		option = input('\nWhat would you like to do?\n1. Create an event \n2. View list of events\n3. View last event\n')
 
 		if option == 1:
 			return self.add_event()
