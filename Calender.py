@@ -1,10 +1,12 @@
 from tabulate import tabulate
+import calendar
 
 class Calender(object):
 
 	def __init__(self):
 		print('\nWelcome to the Calender App: Calender Initialized\n')
-		self.calender = {'Jan':[range(1, 32)],       #Calculate fo leap year
+		'''
+		self.calender = {'Jan':range(1, 32),
 		                 'Feb':range(1, 30),
 		                 'Mar':range(1, 32),
 		                 'Apr':range(1, 31),
@@ -15,10 +17,12 @@ class Calender(object):
 		                 'Sept':range(1, 31),
 		                 'Oct':range(1, 32),
 		                 'Nov':range(1, 31),
-		                 'Dec':range(1, 32)}
+		                 'Dec':range(1, 32)}'''
+		yy = 2016
+		mm = 11
+		print(calendar.month(yy, mm))
 
 		self.display_events = list()
-
 		self.options()
 
 	def add_event(self):
