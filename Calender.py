@@ -15,15 +15,17 @@ class Calender(object):
 		                 'Nov':range(1, 31),
 		                 'Dec':range(1, 32)}
 
+		self.events = dict()
+
 		self.options()
 
 	def add_event(self):
 		event_name = raw_input('What is the event about?')
 		event_month = raw_input('Enter month: ')
 		event_date = input('Enter date: ')
-		events = {event_name: [event_month, event_date]}
+		self.events[event_name] = [event_month, event_date]
 
-		print events
+		print self.events
 		self.options()
 
 	def view_list(self):
@@ -33,13 +35,13 @@ class Calender(object):
 		pass
 
 	def options(self):
-		self.options = input('What would you like to do?\n1. View list of events\n2. Create an event\n3. View last event')
+		option = input('What would you like to do?\n1. Create an event \n2. View list of events\n3. View last event')
 
-		if self.options == 1:
+		if option == 1:
 			return self.add_event()
-		elif self.options == 2:
+		elif option == 2:
 			return self.view_list()
-		elif self.options == 3:
+		elif option == 3:
 			return self.view_last_event()
 
 
