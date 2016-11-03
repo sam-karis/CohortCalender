@@ -1,3 +1,5 @@
+from tabulate import tabulate
+
 class Calender(object):
 
 	def __init__(self):
@@ -15,7 +17,8 @@ class Calender(object):
 		                 'Nov':range(1, 31),
 		                 'Dec':range(1, 32)}
 
-		self.events = dict()
+		self.events = list()
+		self.display_events = list()
 
 		self.options()
 
@@ -23,13 +26,17 @@ class Calender(object):
 		event_name = raw_input('What is the event about?')
 		event_month = raw_input('Enter month: ')
 		event_date = input('Enter date: ')
-		self.events[event_name] = [event_month, event_date]
+		self.events.append(event_name)
+		self.events.append(event_month)
+		self.events.append(event_date)
 
-		print self.events
+		self.display_events.append(self.events)
+
 		self.options()
 
 	def view_list(self):
-		pass
+		print tabulate(self.display_events, headers=['Event Name', 'Month', 'Date'])
+		self.options()
 
 	def view_last_event(self):
 		pass
