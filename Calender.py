@@ -43,6 +43,7 @@ class Calender(object):
 
 		return self.options()
 
+
 	def options(self):
 		option = input('\nWhat would you like to do?\n1. Create an event \n2. View list of events\n3. View last event\n')
 
