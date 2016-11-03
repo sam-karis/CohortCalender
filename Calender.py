@@ -39,7 +39,11 @@ class Calender(object):
 		self.options()
 
 	def view_last_event(self):
-		pass
+		last_view = list()
+		last_view.append(self.display_events[len(self.display_events)-1])
+
+		print tabulate(last_view, headers=['Last Event Name', 'Month', 'Date'])
+		self.options()
 
 	def options(self):
 		option = input('What would you like to do?\n1. Create an event \n2. View list of events\n3. View last event')
